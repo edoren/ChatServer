@@ -1,0 +1,3 @@
+[submodule "Connect"]
+	path = Connect
+	url = https://github.com/edoren/Connect.git
