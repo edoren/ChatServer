@@ -38,9 +38,9 @@ class ChatServerHandler(Connect.BaseServerHandler):
         if msg is None:
             return  # Bad message - Ignore
 
-        status = self.ProcessMessage(msg)
+        code = self.ProcessMessage(msg)
 
-        response_content = {"message_id": msg.type, "status": status}
+        response_content = {"msg_id": msg.type, "code": code}
         response = Connect.Message(MessageType.RESPONSE, response_content)
         socket_manager.Send(response)
 
