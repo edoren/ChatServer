@@ -18,7 +18,7 @@ class DBManager:
                             "is running in %s:%d", host, port)
             exit()
         if testing:
-            self.client.drop_database("test")
+            # self.client.drop_database("test")
             self.db = self.client["test"]
         else:
             self.db = self.client["chatdb"]

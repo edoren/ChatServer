@@ -11,6 +11,10 @@ class MessageType(IntEnum):
 
     RESPONSE = 100
 
+    NEW_ROOM = 110
+    NEW_CHAT = 111
+    DELETE_ROOM = 112
+
     SERVER_CLOSE = 200
 
 

@@ -60,11 +60,11 @@ class RoomManager:
             self.rooms[name] = Room(name, owner)
             logger.info("Room '%s' created with owner '%s'",
                         name, owner.user)
-            return 0
+            return self.rooms[name]
         else:
             logger.error("User '%s' tryied to create an existent Room '%s'",
-                         owner, name)
-            return 1  # Room name already in use
+                         owner.user, name)
+            return None  # Room name already in use
 
     def RemoveRoom(self, name, owner):
         if name in self.rooms:
@@ -78,3 +78,10 @@ class RoomManager:
                 return 2  # User try to remove a not owned Room
         else:
             return 1  # Room doesn't exist
+
+    def GetRoomList(self):
+        ret = []
+        for room in self.rooms.values():
+            if room.name != "default":
+                ret.append({"name": room.name, "owner": room.owner.user})
+        return ret
